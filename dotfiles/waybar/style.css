@@ -1,0 +1,151 @@
+/* Waybar — Tokyo Night theme
+   Colors: https://github.com/enkia/tokyo-night-vscode-theme */
+
+/* ── Palette ───────────────────────────────────────────────────────────────── */
+/* bg:       #1a1b26   fg:     #c0caf5   blue:   #7aa2f7
+   comment:  #565f89   green:  #9ece6a   yellow: #e0af68
+   red:      #f7768e   cyan:   #7dcfff   purple: #bb9af7 */
+
+* {
+  font-family: "JetBrainsMono Nerd Font", "JetBrains Mono", monospace;
+  font-size: 13px;
+  border: none;
+  border-radius: 0;
+  padding: 0;
+  margin: 0;
+  min-height: 0;
+}
+
+window#waybar {
+  background-color: rgba(26, 27, 38, 0.88);
+  border-bottom: 1px solid rgba(122, 162, 247, 0.25);
+  color: #c0caf5;
+}
+
+/* ── Workspaces ────────────────────────────────────────────────────────────── */
+#workspaces {
+  margin: 0 4px;
+}
+
+#workspaces button {
+  color: #565f89;
+  background: transparent;
+  padding: 0 6px;
+  margin: 2px 1px;
+  border-bottom: 2px solid transparent;
+  transition: all 0.15s ease;
+}
+
+#workspaces button:hover {
+  color: #c0caf5;
+  background: rgba(122, 162, 247, 0.12);
+  border-bottom: 2px solid #7aa2f7;
+}
+
+#workspaces button.active {
+  color: #7aa2f7;
+  background: rgba(122, 162, 247, 0.15);
+  border-bottom: 2px solid #7aa2f7;
+}
+
+#workspaces button.urgent {
+  color: #1a1b26;
+  background: #f7768e;
+  border-bottom: 2px solid #f7768e;
+}
+
+/* ── Window title ──────────────────────────────────────────────────────────── */
+#window {
+  color: #a9b1d6;
+  padding: 0 10px;
+  font-style: italic;
+}
+
+/* ── Clock ─────────────────────────────────────────────────────────────────── */
+#clock {
+  color: #7aa2f7;
+  font-weight: bold;
+  padding: 0 12px;
+}
+
+/* ── Shared right-side modules ─────────────────────────────────────────────── */
+#cpu,
+#memory,
+#temperature,
+#network,
+#pulseaudio,
+#battery,
+#tray {
+  color: #a9b1d6;
+  padding: 0 8px;
+  margin: 2px 1px;
+}
+
+#cpu {
+  color: #9ece6a;
+}
+#cpu.high {
+  color: #e0af68;
+}
+
+#memory {
+  color: #7dcfff;
+}
+
+#temperature {
+  color: #e0af68;
+}
+#temperature.critical {
+  color: #f7768e;
+  animation: blink 1s infinite;
+}
+
+#network {
+  color: #bb9af7;
+}
+#network.disconnected {
+  color: #565f89;
+}
+
+#pulseaudio {
+  color: #7aa2f7;
+}
+#pulseaudio.muted {
+  color: #565f89;
+}
+
+#battery {
+  color: #9ece6a;
+}
+#battery.warning {
+  color: #e0af68;
+}
+#battery.critical {
+  color: #f7768e;
+  animation: blink 1s infinite;
+}
+#battery.charging,
+#battery.plugged {
+  color: #9ece6a;
+}
+
+#tray {
+  padding: 0 6px;
+}
+#tray > .passive {
+  -gtk-icon-effect: dim;
+}
+
+/* ── Animation for critical states ─────────────────────────────────────────── */
+@keyframes blink {
+  to {
+    background-color: rgba(247, 118, 142, 0.15);
+  }
+}
+
+tooltip {
+  background-color: #1a1b26;
+  border: 1px solid rgba(122, 162, 247, 0.4);
+  border-radius: 0;
+  color: #c0caf5;
+}
