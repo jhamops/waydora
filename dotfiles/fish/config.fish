@@ -19,9 +19,7 @@ if status is-interactive
     set -gx PAGER less
     set -gx MANPAGER "nvim +Man!"
     set -gx FZF_DEFAULT_COMMAND 'fd --type f --hidden --follow --exclude .git'
-    set -gx FZF_DEFAULT_OPTS '--color=bg+:#283457,bg:#1a1b26,spinner:#7dcfff,hl:#7aa2f7 \
-      --color=fg:#c0caf5,header:#7aa2f7,info:#7dcfff,pointer:#7aa2f7 \
-      --color=marker:#9ece6a,fg+:#c0caf5,prompt:#7aa2f7,hl+:#7aa2f7'
+    set -gx FZF_DEFAULT_OPTS '--color=bg+:#283457,bg:#1a1b26,spinner:#7dcfff,hl:#7aa2f7 --color=fg:#c0caf5,header:#7aa2f7,info:#7dcfff,pointer:#7aa2f7 --color=marker:#9ece6a,fg+:#c0caf5,prompt:#7aa2f7,hl+:#7aa2f7'
 
     # ── PATH additions ─────────────────────────────────────────────────────────
     fish_add_path ~/.local/bin
@@ -76,6 +74,12 @@ if status is-interactive
 
     # NVIDIA quick check
     alias gpu='nvidia-smi --query-gpu=name,driver_version,temperature.gpu,utilization.gpu --format=csv,noheader'
+
+    # LocalStack (AWS simulado local)
+    alias lsup='docker compose -f ~/localstack/docker-compose.yml up -d'
+    alias lsdown='docker compose -f ~/localstack/docker-compose.yml down'
+    alias lslogs='docker compose -f ~/localstack/docker-compose.yml logs -f'
+    alias aws-local='aws --profile localstack'
 
     # ── Greeting ───────────────────────────────────────────────────────────────
     if type -q fastfetch
